@@ -3,6 +3,8 @@
 .env.*
 node_modules/
 DESIGN-NOTES.md
-assets/original-tiles.jpeg
-assets/blue-white-azulejo.png
-assets/cafe-des-epices.jpeg
+# Keep local experiments and reference photos out of the repository.
+assets/*
+!assets/mural-subtle-balanced-detail.png
+!assets/mural-balanced-terrace.png
+!assets/mural-santa-cruz-no-clouds.png

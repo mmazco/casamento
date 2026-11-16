@@ -14,29 +14,28 @@ document.querySelectorAll('dialog').forEach(dialog => {
   });
 });
 
-const ceremonyTile = document.querySelector('.ceremony-tile');
-let tileHovered = false;
-let tilePinned = false;
-function updateCeremonyTile() {
-  const flipped = tileHovered || tilePinned;
-  ceremonyTile.classList.toggle('is-flipped', flipped);
-  ceremonyTile.setAttribute('aria-pressed', String(flipped));
-}
-ceremonyTile.addEventListener('pointerenter', event => {
-  if (event.pointerType === 'mouse') { tileHovered = true; updateCeremonyTile(); }
-});
-ceremonyTile.addEventListener('pointerleave', () => {
-  tileHovered = false;
-  updateCeremonyTile();
-});
-ceremonyTile.addEventListener('click', () => {
-  tilePinned = !tilePinned;
-  updateCeremonyTile();
-});
-ceremonyTile.addEventListener('keydown', event => {
-  if (event.key === 'Escape') {
-    tileHovered = false;
-    tilePinned = false;
-    updateCeremonyTile();
+document.querySelectorAll('.plan-tile').forEach(tile => {
+  const flipButton = tile.querySelector('.tile-flip');
+  const mapLink = tile.querySelector('.tile-venue-map');
+  let hovered = false;
+  let pinned = false;
+  function updateTile() {
+    const flipped = hovered || pinned;
+    tile.classList.toggle('is-flipped', flipped);
+    flipButton.setAttribute('aria-pressed', String(flipped));
+    if (mapLink) mapLink.tabIndex = flipped ? 0 : -1;
+    tile.querySelector('.plan-tile-back').setAttribute('aria-hidden', String(!flipped));
   }
+  tile.addEventListener('pointerenter', event => {
+    if (event.pointerType === 'mouse') { hovered = true; updateTile(); }
+  });
+  tile.addEventListener('pointerleave', () => { hovered = false; updateTile(); });
+  tile.addEventListener('click', event => {
+    if (event.target.closest('a')) return;
+    pinned = !pinned;
+    updateTile();
+  });
+  tile.addEventListener('keydown', event => {
+    if (event.key === 'Escape') { hovered = false; pinned = false; updateTile(); }
+  });
 });
