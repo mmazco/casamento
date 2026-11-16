@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Portuguese azulejo artwork in cobalt blue on white porcelain with a pale yellow border.">
+  <title>Maryam and Gabriel — Casamento em Lisboa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="invitation-heading"><span class="invitation-intro">You are invited to</span><span class="couple-names">Maryam and Gabriel’s</span><span class="invitation-location">casamento em Lisboa</span></h1>
+    <button class="rsvp-button" type="button" data-open="rsvp-details" aria-haspopup="dialog">RSVP</button>
+  </header>
+  <main id="invitation">
+    <figure class="artwork">
+      <div class="tile-panel">
+        <img src="assets/blue-white-yellow-azulejo.png" alt="An ornate Portuguese azulejo mural with cobalt blue illustrations on white porcelain tiles and a pale yellow background around the outer scrollwork.">
+        <button class="ceremony-tile" type="button" aria-label="Ceremony at Café des Épices, 16:00 Lisbon local time. Flip tile." aria-pressed="false">
+          <span class="ceremony-tile-inner" aria-hidden="true">
+            <span class="ceremony-tile-front"></span>
+            <span class="ceremony-tile-back">
+              <span class="tile-title">Ceremony</span>
+              <span class="tile-venue">Café des Épices</span>
+              <span class="tile-time">16:00</span>
+              <span class="tile-timezone">Lisbon local time</span>
+            </span>
+          </span>
+        </button>
+      </div>
+      <figcaption class="artwork-credit"><a href="https://www.instagram.com/dacostaworld" target="_blank" rel="noopener noreferrer">Original artwork by @dacostaworld</a></figcaption>
+    </figure>
+  </main>
+  <dialog id="day-details" aria-labelledby="day-title"><button class="dialog-close" type="button" aria-label="Close details">×</button><h2 id="day-title">Our day</h2><p class="event-label">The ceremony</p><p>Café des Épices Lisboa</p><p class="event-label">Dinner &amp; party</p><p>Fábrica Braço de Prata</p><p class="details-note">Marvila, Lisboa<br>Date and timings to follow.</p></dialog>
+  <dialog id="rsvp-details" aria-labelledby="rsvp-title"><button class="dialog-close" type="button" aria-label="Close RSVP">×</button><h2 id="rsvp-title">RSVP</h2><p>We can’t wait to celebrate with you.</p><p class="details-note">RSVP details are coming soon.</p></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
